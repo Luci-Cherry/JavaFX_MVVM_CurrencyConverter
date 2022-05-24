@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="335.0" maxWidth="679.0" minHeight="335.0" minWidth="679.0" prefHeight="335.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.View">
+   <children>
+      <TabPane prefHeight="335.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Converter">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="220.0" prefWidth="679.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="78.0" text="Amount">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="235.0" layoutY="14.0" prefHeight="25.0" prefWidth="78.0" text="From">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="484.0" layoutY="14.0" prefHeight="25.0" prefWidth="78.0" text="To">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="amountField" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="170.0" text="1.00" />
+                        <ComboBox fx:id="fromComboBox" layoutX="235.0" layoutY="39.0" prefHeight="25.0" prefWidth="181.0" />
+                        <Button fx:id="convertButton" layoutX="567.0" layoutY="128.0" mnemonicParsing="false" onAction="#onConvertBtn" prefHeight="25.0" prefWidth="98.0" text="Convert" />
+                        <ComboBox fx:id="toComboBox" layoutX="484.0" layoutY="39.0" prefHeight="25.0" prefWidth="181.0" />
+                        <Label fx:id="fromAmountLabel" layoutX="33.0" layoutY="88.0" prefHeight="31.0" prefWidth="223.0" textFill="#727272">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="resultAmountLabel" layoutX="33.0" layoutY="126.0" prefHeight="31.0" prefWidth="223.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentRateLabel" layoutX="33.0" layoutY="169.0" prefHeight="17.0" prefWidth="322.0" textFill="#908f8f" />
+                        <Button fx:id="invertButton" layoutX="429.0" layoutY="39.0" mnemonicParsing="false" onAction="#onInvertBtn" prefHeight="25.0" prefWidth="44.0" text="invert">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="lastUpdLabel" layoutX="415.0" layoutY="186.0" prefHeight="17.0" prefWidth="251.0" textFill="#000000a5" />
+                        <Label fx:id="warningsForConverterTab" layoutX="14.0" layoutY="80.0" prefHeight="17.0" prefWidth="304.0" textFill="RED" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Rates">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Base currency:" />
+                        <ComboBox fx:id="baseCurComboBox" layoutX="96.0" layoutY="10.0" onAction="#onBaseCurComboBox" prefHeight="25.0" prefWidth="196.0" promptText="USD - United States Dollar " />
+                        <TableView fx:id="ratesTable" layoutX="24.0" layoutY="51.0" prefHeight="245.0" prefWidth="380.0">
+                          <columns>
+                            <TableColumn fx:id="currencyColumn" prefWidth="232.0" text="Currency" />
+                            <TableColumn fx:id="rateColumn" prefWidth="146.0" text="Amount" />
+                          </columns>
+                        </TableView>
+                        <ComboBox fx:id="addCurComboBox" layoutX="439.0" layoutY="51.0" onAction="#onAddCurComboBox" prefHeight="25.0" prefWidth="213.0" promptText="+" />
+                        <Label layoutX="439.0" layoutY="22.0" prefHeight="26.0" prefWidth="136.0" text="Add currency:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="411.0" layoutY="275.0" text="Last update:" />
+                        <Label fx:id="lastTableUpdate" layoutX="481.0" layoutY="275.0" prefHeight="17.0" prefWidth="187.0" />
+                        <Label layoutX="411.0" layoutY="233.0" text="Update time:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="updFrequencyTextField" alignment="CENTER" layoutX="501.0" layoutY="231.0" prefHeight="25.0" prefWidth="53.0" text="60" />
+                        <Label layoutX="561.0" layoutY="233.0" text="sec.">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="warningsForRatesTab" layoutX="411.0" layoutY="194.0" prefHeight="17.0" prefWidth="254.0" textFill="RED" />
+                        <Button fx:id="setButton" layoutX="594.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSetUpdateTime" text="set" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
